@@ -1,5 +1,5 @@
 import { useState, useMemo, useRef, useEffect } from "react";
-
+import PlumbingEngine from "./PlumbingEngine";
 /* ═══════════════════════════════════════════════════════════════
    i3d CONSTRUCTION MANAGEMENT SYSTEM v2.0 — TIER 1 + TIER 2
    Tier 1: Dashboard, Workspace, Stages, Cost, Agreement, Payment
@@ -417,6 +417,7 @@ export default function App(){
             <div style={{fontSize:11,color:DM,textTransform:"uppercase",letterSpacing:"1.5px",marginBottom:8}}>i3d Construction Management System</div>
             <div style={{display:"flex",justifyContent:"center",gap:14,marginTop:16}}>
               <Bt gold onClick={createProject} sx={{padding:"14px 32px",fontSize:14,borderRadius:10}}>New Project</Bt>
+               <Bt onClick={function(){setScreen("plumbing");}} sx={{padding:"14px 32px",fontSize:14,borderRadius:10,background:"rgba(201,168,76,0.06)",border:"1px solid rgba(201,168,76,0.25)",color:G}}>⧩ Plumbing Engine</Bt>
             </div>
           </div>
           <div style={{display:"flex",gap:10,flexWrap:"wrap",marginBottom:20}}>
@@ -847,6 +848,15 @@ export default function App(){
                   <Stat label="Approved" value={String(proj.photos.filter(function(p){return p.approved;}).length)} color={GN}/>
                   <Stat label="Pending Approval" value={String(proj.photos.filter(function(p){return!p.approved;}).length)} color={AM}/>
                 </div>
+           {screen==="plumbing"&&(
+        <div>
+          <div style={{padding:"8px 22px",borderBottom:"1px solid "+BD,display:"flex",alignItems:"center",gap:10}}>
+            <Bt sx={{fontSize:11}} onClick={function(){setScreen("dashboard");}}>← Dashboard</Bt>
+            <span style={{fontSize:11,color:DM}}>Plumbing Engine — i3d Studio</span>
+          </div>
+          <PlumbingEngine/>
+        </div>
+      )}
               )}
             </div>)}
 
