@@ -852,7 +852,7 @@ export default function App(){
         <div>
           <div style={{padding:"8px 22px",borderBottom:"1px solid "+BD,display:"flex",alignItems:"center",gap:10}}>
             <Bt sx={{fontSize:11}} onClick={function(){setScreen("dashboard");}}>← Dashboard</Bt>
-            <span style={{fontSize:11,color:DM}}>Plumbing Engine — i3d Studio</span>
+            <span style={{fontSize:11,color:DM}}>>Plumbing Engine – i3d Studio</span>
           </div>
           <PlumbingEngine/>
         </div>
