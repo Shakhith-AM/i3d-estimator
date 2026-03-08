@@ -848,23 +848,13 @@ export default function App(){
                   <Stat label="Approved" value={String(proj.photos.filter(function(p){return p.approved;}).length)} color={GN}/>
                   <Stat label="Pending Approval" value={String(proj.photos.filter(function(p){return!p.approved;}).length)} color={AM}/>
                 </div>
-           
-        <div>
-          <div style={{padding:"8px 22px",borderBottom:"1px solid "+BD,display:"flex",alignItems:"center",gap:10}}>
-            <Bt sx={{fontSize:11}} onClick={function(){setScreen("dashboard");}}>← Dashboard</Bt>
-            <span style={{fontSize:11,color:DM}}>>Plumbing Engine – i3d Studio</span>
-          </div>
-          <PlumbingEngine/>
-        </div>
-
-          </div>
-        </div>
+   
       )}
 
      {screen==="plumbing"&&(
         <div>
           <div style={{padding:"8px 22px",borderBottom:"1px solid "+BD,display:"flex",alignItems:"center",gap:10}}>
-            <Bt sx={{fontSize:11}} onClick={function(){setScreen("dashboard");}}>← Dashboard</Bt>
+            <Bt sx={{fontSize:11}} onClick={()=>setScreen("dashboard")}>
             <span style={{fontSize:11,color:DM}}>Plumbing Engine – i3d Studio</span>
           </div>
           <PlumbingEngine/>
