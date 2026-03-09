@@ -1,5 +1,6 @@
 import { useState, useMemo, useRef, useEffect } from "react";
 import PlumbingEngine from "./PlumbingEngine";
+import Header from "./components/Header";
 /* ═══════════════════════════════════════════════════════════════
    i3d CONSTRUCTION MANAGEMENT SYSTEM v2.0 — TIER 1 + TIER 2
    Tier 1: Dashboard, Workspace, Stages, Cost, Agreement, Payment
@@ -398,17 +399,7 @@ export default function App(){
 
   return(
     <div style={{minHeight:"100vh",background:BG,color:TX,fontFamily:"'Segoe UI',system-ui,sans-serif"}}>
-      {/* HEADER */}
-      <div style={{background:"linear-gradient(135deg,#141418,#0A0A0D)",borderBottom:"1px solid "+BD,padding:"14px 22px",display:"flex",alignItems:"center",justifyContent:"space-between"}}>
-        <div style={{display:"flex",alignItems:"center",gap:11,cursor:"pointer"}} onClick={goHome}>
-          <div style={{width:36,height:36,background:"linear-gradient(135deg,"+G+",#A67C2E)",borderRadius:8,display:"flex",alignItems:"center",justifyContent:"center",fontSize:12,fontWeight:800,color:"#111"}}>i3d</div>
-          <div><div style={{fontSize:15,fontWeight:700,color:"#F0F0F0"}}>Construction Management System</div><div style={{fontSize:9,color:DM,letterSpacing:"0.5px",textTransform:"uppercase"}}>i3d Studio - Coimbatore - v3.0</div></div>
-        </div>
-        <div style={{display:"flex",gap:8,alignItems:"center"}}>
-          {proj&&<span style={{fontSize:11,color:G,fontWeight:600}}>{proj.id}</span>}
-          <Bt sx={{fontSize:11}} onClick={function(){exportPDF(document.getElementById("ws-content"),proj,wsTab);}}>Export PDF</Bt>
-        </div>
-      </div>
+      <Header setScreen={setScreen}/>
 
       {/* DASHBOARD */}
       {screen==="dashboard"&&(
@@ -851,15 +842,9 @@ export default function App(){
                
 {screen==="plumbing" && (
   <div>
-    <div style={{padding:"8px 22px", borderBottom:"1px solid "+BD, display:"flex", alignItems:"center", gap:10}}>
-      <Bt sx={{fontSize:11}} onClick={()=>setScreen("dashboard")}>
-        Dashboard
-      </Bt>
-
-      <span style={{fontSize:11,color:"#444"}}>Plumbing Engine – i3d Studio</span>
-    </div>
-
-    <PlumbingEngine/>
+  
+     <PlumbingEngine/>
+     
   </div>
 )}
         </div>
