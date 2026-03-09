@@ -848,15 +848,15 @@ export default function App(){
                   <Stat label="Approved" value={String(proj.photos.filter(function(p){return p.approved;}).length)} color={GN}/>
                   <Stat label="Pending Approval" value={String(proj.photos.filter(function(p){return!p.approved;}).length)} color={AM}/>
                 </div>
-               )}
-     {screen==="plumbing" && (
+               
+{screen==="plumbing" && (
   <div>
     <div style={{padding:"8px 22px", borderBottom:"1px solid "+BD, display:"flex", alignItems:"center", gap:10}}>
       <Bt sx={{fontSize:11}} onClick={()=>setScreen("dashboard")}>
         Dashboard
       </Bt>
 
-      <span style={{fontSize:11, color:"#444"}}>Plumbing Engine – i3d Studio</span>
+      <span style={{fontSize:11,color:"#444"}}>Plumbing Engine – i3d Studio</span>
     </div>
 
     <PlumbingEngine/>
